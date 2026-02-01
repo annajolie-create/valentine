@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Eine wichtige Frage </title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #ffa1de;
+            font-family: 'Arial', sans-serif;
+            overflow: hidden;
+        }
+        h1 { color: #0d0101; font-size: 3rem; }
+        .buttons { display: flex; gap: 20px; align-items: center; }
+        
+        #yesBtn {
+            background-color: #3ddb1d;
+            color: white;
+            border: none;
+            padding: 20px 40px;
+            font-size: 2rem; /* The "Really Big" Yes */
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        #noBtn {
+            background-color: #e70505;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1rem;
+            border-radius: 10px;
+            position: absolute; /* Needed for the "running away" effect */
+            transition: 0.2s;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>will you be my valentine, bebi?</h1>
+    
+    <div class="buttons">
+        <button id="yesBtn" onclick="alert('yay! richtige wahl, ich liebe dich! ')">JA</button>
+        <button id="noBtn">Nein</button>
+    </div>
+
+    <script>
+        const noBtn = document.getElementById('noBtn');
+
+        // This makes the button "run away" when the mouse hovers over it
+        noBtn.addEventListener('mouseover', () => {
+            const x = Math.random() * (window.innerWidth - noBtn.offsetWidth);
+            const y = Math.random() * (window.innerHeight - noBtn.offsetHeight);
+            
+            noBtn.style.left = `${x}px`;
+            noBtn.style.top = `${y}px`;
+        });
+    </script>
+
+</body>
+</html>
